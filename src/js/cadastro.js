@@ -22,7 +22,7 @@ class FormDados {
     )
       .then((res) => res.json())
       .then(() => {
-        window.location.href = "./login_html.html";
+        window.location.href = "./src/html/login_html.html";
       })
       .catch((error) => alert(error));
     return response;

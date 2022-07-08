@@ -120,6 +120,31 @@ input {
   color: #fff;
   font-size: 1.2rem;
 }
+.div_user_header {
+  display: flex;
+  width: 15rem;
+  height: 4rem;
+  gap: 1rem;
+  right: 86%;
+  position: fixed;
+}
+.img_usuario {
+  border: none;
+  object-fit: cover;
+  margin: 0.1rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9rem;
+}
+.nome_usuario {
+  margin-top: 1.1rem;
+  width: 9rem;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #fff;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
 .div_texto_post {
   position: absolute;
   width: 60%;
@@ -149,13 +174,118 @@ input {
   font-weight: 700;
   color: #fff;
 }
-.post_user {
-  position: absolute;
+/* .post_user{
+ 
+} */
+.li_user_post {
+  position: relative;
+  display: flex;
+  top: 23rem;
+  margin-bottom: 1.4rem;
   width: 60%;
   height: 15rem;
   left: 22%;
-  top: 40%;
   background: #ffffff;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0.8rem;
+}
+.img_user_post {
+  object-fit: cover;
+  margin: 1rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 9rem;
+  border: none;
+}
+.p_user {
+  margin-top: 1.6rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: black;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.p_post_content {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: gray;
+}
+.data_post {
+  position: absolute;
+  top: 80%;
+  left: 75%;
+  font-size: 1rem;
+  font-weight: 600;
+  color: gray;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.div_editar_post{
+  position: absolute;
+  right: 0;
+  top: 5rem;
+  display: flex;
+  flex-direction: column;
+  width: 18%;
+  height: 10%;
+}
+.botao_editar{
+  font-size: 1.5rem;
+  font-weight: 200;
+  color: blue;
+  border: none;
+  background: #fff;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    cursor: pointer;
+}
+.botao_Apagar{
+  font-size: 1.5rem;
+  color: red;
+  border: none;
+  background: #fff;
+  font-weight: 200;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    cursor: pointer;
+}
+/* mobile */
+@media (max-width: 375px) {
+  .div_user_header {
+    margin-top: 1rem;
+    right: 33%;
+  }
+  .header_home {
+    height: 9rem;
+    width: 100%;
+  }
+  .botao_home_logout {
+    margin-top: 5rem;
+    margin-right: 1rem;
+  }
+  .div_texto_post {
+    width: 90%;
+    left: 0;
+    margin: 1rem;
+    margin-top: 0.6rem;
+  }
+  .li_user_post {
+    width: 90%;
+    left: 1%;
+    margin: 1rem;
+  }
+  .data_post {
+    left: 40%;
+  }
+  .botao_texto_post {
+    left: 80%;
+    width: 16%;
+  }
+  .input_texto_post {
+    font-size: 1.5rem;
+  }
+  .p_post_content{
+    font-size: 1.1rem;
+  }
 }

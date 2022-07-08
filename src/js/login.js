@@ -19,9 +19,12 @@ class LoginDados {
       .then((res) => res.json())
       .then((res) => {
         localStorage.setItem("@dadosUser", JSON.stringify(res));
-      })
-      .then(() => {
-        window.location.href = "./home_html.html";
+        if (res.message){
+          alert(res.message);
+        }
+        else {
+          window.location.href = "./home_html.html";
+        }
       })
       .catch((error) => alert(error));
     return response;
