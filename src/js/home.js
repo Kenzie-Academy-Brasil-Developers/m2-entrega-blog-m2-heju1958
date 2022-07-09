@@ -122,6 +122,30 @@ function carregarDadosPosts(dadosPost) {
   });
 }
 
+function editarPost(id, li) {
+  const divEditar = document.createElement("div");
+  divEditar.className = "div_editar_post";
+
+  const botaoEditar = document.createElement("button");
+  botaoEditar.className = "botao_editar";
+  botaoEditar.innerText = "Editar";
+
+  botaoEditar.addEventListener("click", () => {
+    novoConteudoPost(id, li);
+  });
+
+  const botaoApagar = document.createElement("button");
+  botaoApagar.className = "botao_Apagar";
+  botaoApagar.innerText = "Apagar";
+
+  botaoApagar.addEventListener("click", () => {
+    DeletePost.delete(id);
+  });
+
+  divEditar.append(botaoEditar, botaoApagar);
+  li.append(divEditar);
+}
+
 class DeletePost {
   static token = JSON.parse(localStorage.getItem("@dadosUser")) || "";
   static async delete(id) {
@@ -139,48 +163,43 @@ class DeletePost {
   }
 }
 
+function novoConteudoPost(id, li) {
+  const divInputConteudo = document.createElement("div");
+  divInputConteudo.className = "div_input_novo";
+  divInputConteudo.id = "div_input_novo";
+
+  const novoInputValue = document.createElement("input");
+  novoInputValue.className = "input_novo_conteudo";
+  novoInputValue.id = "input_novo_conteudo";
+
+  const botaoInputEnviar = document.createElement("button");
+  botaoInputEnviar.innerText = "Enviar";
+  botaoInputEnviar.className = "botao_input_enviar";
+  botaoInputEnviar.id = "botao_input_enviar";
+
+  botaoInputEnviar.addEventListener("click", async () => {
+    const novoInput = document.getElementById("input_novo_conteudo").value;
+    await EditarConteudo.editar(id, novoInput);
+    location.reload();
+  });
+
+  divInputConteudo.append(novoInputValue, botaoInputEnviar);
+  li.append(divInputConteudo);
+}
+
 class EditarConteudo {
   static token = JSON.parse(localStorage.getItem("@dadosUser")) || "";
-  static async editar(id, novoConteudo) {
+  static async editar(id, novoInput) {
     const response = await fetch(`https://blog-m2.herokuapp.com/posts/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${CreatePost.token.token}`,
       },
-      body: `{"content": "${novoConteudo}"}`,
-    })
-      .then((res) => res.json())
-      .then(() => {
-        // location.reload();
-      })
+      body: `{"content": "${novoInput}"}`,
+    }).then((res) => res.json());
     return response;
   }
-}
-
-function editarPost(id, li) {
-  const divEditar = document.createElement("div");
-  divEditar.className = "div_editar_post";
-
-  const botaoEditar = document.createElement("button");
-  botaoEditar.className = "botao_editar";
-  botaoEditar.innerText = "Editar";
-
-  botaoEditar.addEventListener("click", () => {
-    const novoConteudo = document.getElementById("input_texto_post").value;
-    EditarConteudo.editar(id, novoConteudo);
-  });
-
-  const botaoApagar = document.createElement("button");
-  botaoApagar.className = "botao_Apagar";
-  botaoApagar.innerText = "Apagar";
-
-  botaoApagar.addEventListener("click", () => {
-    DeletePost.delete(id);
-  });
-
-  divEditar.append(botaoEditar, botaoApagar);
-  li.append(divEditar);
 }
 
 class Logout {

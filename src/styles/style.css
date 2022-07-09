@@ -174,9 +174,6 @@ input {
   font-weight: 700;
   color: #fff;
 }
-/* .post_user{
- 
-} */
 .li_user_post {
   position: relative;
   display: flex;
@@ -221,7 +218,7 @@ input {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-.div_editar_post{
+.div_editar_post {
   position: absolute;
   right: 0;
   top: 5rem;
@@ -230,7 +227,7 @@ input {
   width: 18%;
   height: 10%;
 }
-.botao_editar{
+.botao_editar {
   font-size: 1.5rem;
   font-weight: 200;
   color: blue;
@@ -238,9 +235,9 @@ input {
   background: #fff;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    cursor: pointer;
+  cursor: pointer;
 }
-.botao_Apagar{
+.botao_Apagar {
   font-size: 1.5rem;
   color: red;
   border: none;
@@ -248,7 +245,27 @@ input {
   font-weight: 200;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    cursor: pointer;
+  cursor: pointer;
+}
+.div_input_novo {
+  display: flex;
+  position: absolute;
+  top: 5rem;
+  left: 7rem;
+  width: 80%;
+}
+.input_novo_conteudo {
+  width: 60%;
+  height: 6rem;
+}
+.botao_input_enviar {
+  width: 10%;
+  height: 2rem;
+  border: none;
+  margin-left: 1rem;
+  color: green;
+  background: #fff;
+  font-size: 1.3rem;
 }
 /* mobile */
 @media (max-width: 375px) {
@@ -271,6 +288,7 @@ input {
     margin-top: 0.6rem;
   }
   .li_user_post {
+    flex-direction: column-reverse;
     width: 90%;
     left: 1%;
     margin: 1rem;
@@ -285,7 +303,17 @@ input {
   .input_texto_post {
     font-size: 1.5rem;
   }
-  .p_post_content{
+  .p_post_content {
     font-size: 1.1rem;
+  }
+  .div_input_novo{
+    width: 40%;
+  }
+  .div_editar_post{
+    top: 1rem;
+    right: 3rem;
+  }
+  .botao_input_enviar{
+    margin-top: 3rem;
   }
 }
